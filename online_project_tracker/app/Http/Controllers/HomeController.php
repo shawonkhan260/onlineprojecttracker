@@ -5,22 +5,12 @@ use Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
-{
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+{   
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
         if(Auth::user()->hasRole('manager')){
@@ -30,8 +20,12 @@ class HomeController extends Controller
             return view('employee.base');
         }
         if(Auth::user()->hasRole('admin')){
-            return view('admin.base');
+            return view('admin.dashboard');
         }
+        if(Auth::user()->hasRole('head')){
+            return view('head.dashboard');
+        }
+        return view('wait');
         
     }
 }

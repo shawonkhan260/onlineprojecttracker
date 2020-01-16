@@ -11,19 +11,57 @@
 |
 */
 
-Route::get('/login', function () {
-    return view('auth.login');
+//Route::get('/', function () {
+    //return view('auth.login');
+//})->name('login');
+
+
+Route::get('/show', function () {
+    return view('admin.projectshow');
 });
-
 Auth::routes();
+//alluser dashboard
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::get('/no', 'DashboardController@noaccess')->name('noaccess')->middleware('auth');
-/* link for admin */
-//Route::get('/admin', 'DashboardController@admin')->name('admin')->middleware('auth','admin');
-/* link for manager */
-//Route::get('/manager', 'DashboardController@manager')->name('manager')->middleware('manager');
 
-/* link for employee */
-//Route::get('/employee', 'DashboardController@employee')->name('employee')->middleware('employee');
+
+//admin 
+Route::resource('client', 'ClientController')->middleware('admin');
+Route::resource('project', 'ProjectController')->middleware('admin');
+Route::resource('division', 'DivisionController')->middleware('admin');
+Route::resource('user', 'UserController')->middleware('admin');
+
+
+//head
+Route::group(['middleware'=>['auth','head']],function(){
+Route::get('/headproject', 'ModuleController@headproject')->name('headproject');
+Route::resource('module', 'ModuleController');
+Route::resource('group', 'GroupController');
+//Route::resource('member', 'MemberController');
+Route::get('/projectmodule/{id}','ModuleController@modulelist')->name('modulelist');
+Route::get('/moduleassign/{id}','ModuleassignController@edit')->name('moduleassign');
+Route::PATCH('/moduleassignupdate/{id}','ModuleassignController@update')->name('moduleassignupdate');
+});
+//Route::get('/client','ClientController@create')->name('clientadd');
+//Route::POST('/client/store','ClientController@store')->name('clientstore');
+
+
+Route::get('memberlist/{id}', 'MemberController@index')->name('memberlist');
+Route::POST('memberadd', 'MemberController@update')->name('memberadd');
+Route::GET('memberdestroy/{id}', 'MemberController@destroy')->name('memberdestroy');
+
+
+
+//manager
+Route::resource('task', 'TaskController');
+Route::get('/managermodule', 'TaskController@managermodule')->name('managermodule');
+Route::get('/tasklist/{id}','TaskController@tasklist')->name('tasklist');
+
+
+Route::get('/taskassign/{id}','TaskassignController@edit')->name('taskassign');
+Route::PATCH('/taskassignupdate/{id}','TaskassignController@update')->name('taskassignupdate');
+
+
+//employee
+Route::resource('employeetask', 'EmployeetaskController');

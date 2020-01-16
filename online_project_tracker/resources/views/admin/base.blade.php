@@ -15,11 +15,16 @@
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
-            <div class="tile-body">admin dashboard
-            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+            @yield('content')
             </div>
           </div>
         </div>
       </div>
 </main>
+@endsection
+@section('link')
+<li><a class="app-menu__item" href="{{route('client.index')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Client</span></a></li>
+<li><a class="app-menu__item" href="{{route('project.index')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Project</span></a></li>
+<li><a class="app-menu__item" href="{{route('division.index')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">division</span></a></li>
+<li><a class="app-menu__item" href="{{route('user.index')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">userlist</span></a></li>
 @endsection

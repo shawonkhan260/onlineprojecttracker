@@ -1,10 +1,13 @@
 @extends('header')
+@section('title')
+<title>Department head </title>
+@endsection
 
 @section('base')
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-dashboard"></i> Manager dashboard</h1>
+          <h1><i class="fa fa-dashboard"></i> Department head dashboard</h1>
           <p>Start a beautiful journey here</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
@@ -22,6 +25,9 @@
       </div>
 </main>
 @endsection
+
+
 @section('link')
-<li><a class="app-menu__item" href="{{route('managermodule')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Module list</span></a></li>
+<li><a class="app-menu__item" href="{{route('headproject')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Project</span></a></li>
+<li><a class="app-menu__item" href="{{route('group.index')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">group</span></a></li>
 @endsection

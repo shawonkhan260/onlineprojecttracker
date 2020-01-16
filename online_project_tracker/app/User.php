@@ -13,6 +13,17 @@ class User extends Authenticatable
         return $this->belongsToMany('App\role');
     }
 
+    public function groups()
+    {
+        return $this->belongsToMany('App\Group');
+    }
+
+    public function projects()
+    {
+        return $this->belongsToMany('App\Project');
+    }
+
+
     public function hasRole($role)
     {
         $roles= $this->roles()->where('name',$role)->count();
