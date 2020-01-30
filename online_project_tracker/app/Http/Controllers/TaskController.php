@@ -5,6 +5,7 @@ use Auth;
 use App\User;
 use App\Task;
 use App\Module;
+use App\Group;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -33,8 +34,13 @@ class TaskController extends Controller
         $data->name=$request->name;
         $data->details=$request->details;
         $data->module_id=$request->module_id;
+        $data->employee_notify="1";
+        $data->status="new";
         $data->save();
-        $id=$request->module_id; //its for reload module list page wiht details of project
+        $id=$request->module_id; //its for reload module list page wiht details of project 
+        $module=Module::find($id);
+        $module->status="running";
+        $module->save();// change project status
         return redirect()->route('tasklist',compact('id'));
     }
 
@@ -66,9 +72,55 @@ class TaskController extends Controller
     public function managermodule(Task $task)
     {
         //$data=DB::table('projects')->latest()->paginate();
+
+        
         $a=Auth::user()->id;
-        $data=Module::where('user_id',$a)->get();
+        $group=Group::where('manager_id',$a)->first();
+        if($group->division_id!=1)  //for non qa department
+        {
+        $notify=Module::where('group_id',$group->id)->where('manager_notify',1)->get();
+            foreach($notify as $no){
+                $no->manager_notify="0";
+                $no->save();
+
+            }
+        
+        $data=Module::where('group_id',$group->id)->get(); //user_id means group id
+        }
+        else{
+            $notify=Module::where('qa',$group->id)->where('manager_notify',2)->get();
+            foreach($notify as $no){
+                $no->manager_notify="0";
+                $no->save();
+
+            }
+            $data=Module::where('qa',$group->id)->get();
+        }
         return view('Manager.modulelist',['datas'=>$data]);
+    }
+
+    public function managercompletemodule(Task $task)
+    {
+        //$data=DB::table('projects')->latest()->paginate();
+
+        
+        $a=Auth::user()->id;
+        $group=Group::where('manager_id',$a)->first();
+        if($group->division_id!=1)  //for non qa department
+        {
+        $notify=Module::where('group_id',$group->id)->where('manager_notify',1)->get();
+            foreach($notify as $no){
+                $no->manager_notify="0";
+                $no->save();
+
+            }
+        
+        $data=Module::where('group_id',$group->id)->get(); //user_id means group id
+        }
+        else{
+            $data=Module::where('qa',$group->id)->get();
+        }
+        return view('Manager.modulecomplete',['datas'=>$data]);
     }
 
 }

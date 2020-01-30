@@ -11,6 +11,7 @@
                   <tr>
                     <th>serial</th>
                     <th>Module Name</th>
+                    <th>Status</th>
                     <th>Action</th>
                     
                     
@@ -19,16 +20,18 @@
                 <tbody>
                 <?php $id=1?>
                 @foreach($datas as $data)
-                  <tr>
+                @if($data->status!='completed')
+                  <tr @if($data->status=="new") style="font-weight: bold;  background-color:rgba(255, 255, 0, 0.5)" @endif>
                     <td>{{$id}}</td>
                     <td>{{$data->name}}</td>
-                   
+                    <td>{{$data->status}}</td>
                     <td style="width: 400px;">
                     <a href="{{route('tasklist',[$data->id])}}" class="btn btn-md btn-info fa fa-list fa-lg" > task List </a> 
                    
                     </td>
                   </tr>
                   <?php ++$id?>
+                  @endif
                 @endforeach  
                   
                 </tbody>

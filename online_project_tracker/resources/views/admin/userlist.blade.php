@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+<a href="{{route('user.create')}}" class="btn btn-lg btn-success m-3 fa fa-plus fa-lg" >Add new user</a>
 
 
       <div class="row">
@@ -21,7 +21,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                <?php $id=$datas->firstItem()?>  
+                <?php $id=1 ?>  
                 @foreach($datas as $data)
                   <tr>
                     <td>{{$id}}</td>
@@ -33,16 +33,26 @@
                     @endforeach
                     </td>
                     <td style="width: 400px;">
-                    
-                    @if($role->name!='admin'or $role->name='')
+                    @if($data->id!=1)
+                    @if(Auth::user()->id!=$data->id)
+
                     <a href="{{route('user.edit',[$data->id])}}" class="btn btn-md btn-success fa fa-edit fa-lg" > Change Role </a> 
-                    
                     <form style="display:inline" action="{{route('user.destroy',[$data->id])}}" method="post">
                         @csrf   
                         @method('DELETE')
                         <button class="btn btn-danger fa fa-trash fa-lg" type="submit">Delete</button>
-                        </form>
-                    @else
+                    </form>
+                    @endif
+
+
+                    @elseif($role->name!='admin')
+                    <a href="{{route('user.edit',[$data->id])}}" class="btn btn-md btn-success fa fa-edit fa-lg" > Change Role </a> 
+                    <form style="display:inline" action="{{route('user.destroy',[$data->id])}}" method="post">
+                        @csrf   
+                        @method('DELETE')
+                        <button class="btn btn-danger fa fa-trash fa-lg" type="submit">Delete</button>
+                    </form>
+                    
                     @endif
                     </td>
                   </tr>

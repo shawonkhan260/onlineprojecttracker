@@ -19,7 +19,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                <?php $id=$datas->firstItem()?>  
+                <?php $id=1?>  
                 @foreach($datas as $data)
                   <tr>
                     <td>{{$id}}</td>

@@ -4,12 +4,13 @@
 
 
 
-<div class="container">
-  <h2>Add Group Member</h2>
+
+ 
   <!-- Button to Open the Modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Add member
+  <button type="button" class="btn btn-primary fa fa-plus fa-lg" data-toggle="modal" data-target="#myModal">
+    Add New Team Member
   </button>
+  <hr>
 
   <!-- The Modal -->
   <div class="modal fade" id="myModal">
@@ -29,7 +30,7 @@
 
   <!--Drop down for employee-->
     <div class="form-group">
-    <label class="control-label col-sm-2" for="user_id">Assigned to:</label>
+    <label class="control-label col-sm-2" for="user_id">Select member:</label>
     <select class="form-control" style="width:100%" placeholder="select a name"  name="user_id" id="demoselect1">
     <option></option>
     <!--for employee list-->
@@ -59,8 +60,8 @@
     </div>
   </div>
   
-</div>
 
+  <h2>Team Member List</h2>
 <!-- Member list-->
 <div class="row">
         <div class="col-md-12">

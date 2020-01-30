@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 Use App\User;
 use App\role;
 use DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -13,18 +14,31 @@ class UserController extends Controller
     public function index()
     {
         
-        $datas=User::with('roles')->paginate();
+        $datas=User::with('roles')->get();
         return view('admin.userlist',compact(['datas']));
     }
 
     public function create()
     {
-        //
+        return view('admin.register');
     }
 
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'skill'=>['required'],
+        ]); 
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'skill'=> $request->skill,
+            'password' => Hash::make($request->password),
+            
+        ]);
+        return redirect()->route('user.index');
     }
 
     public function show($id)

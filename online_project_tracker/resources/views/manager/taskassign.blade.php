@@ -5,7 +5,7 @@
 <div class="container">
 <div class="row">
 <div class="offset-sm-2 col-sm-8">
-  <h2>Assign Module</h2>
+  <h2>Assign Task</h2>
   <form class="form-horizontal" action="{{route('taskassignupdate', $task->id)}}" method="POST">
   {{csrf_field()}}
   @method('PATCH')
@@ -17,11 +17,24 @@
     <div class="form-group">
     <label class="control-label col-sm-2" for="user_id">Assigned to:</label>
     <select class="form-control" placeholder="select a name" name="user_id" id="demoselect1">
+        <?php 
+        $a=Auth::user()->id;
+        $user=App\Group::where('manager_id',$a)->first();
+        ?>
+        @if($user->division_id!='1')
     <option></option>
     @if($task->user_id!='')
     <option value="{{$task->user_id}}" selected>{{$employees->users->find($task->user_id)->name}}<option>
     @else
     @endif
+    @else
+    <option></option>
+    @if($task->qa!='')
+    <option value="{{$task->qa}}" selected>{{$employees->users->find($task->qa)->name}}<option>
+    @else
+    @endif
+    @endif
+
     <!--for managers list-->
     @foreach($employees->users as $user)
     <option value="{{$user->id}}"  >{{$user->name}}</option>

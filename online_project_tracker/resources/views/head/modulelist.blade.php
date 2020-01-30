@@ -21,9 +21,15 @@
             </div>
         </div>
         <input type="hidden" value="{{$data->id}}" name="id">
+        <?php 
+        $a=Auth::user()->id;
+        $qa=App\Division::where('user_id',$a)->first();
+        ?>
+        @if($qa->id!='1')
         <div class="form-group">        
             <button type="submit" class="btn btn-primary">Add new module</button>
         </div>
+        @endif
         </form>
         </div>
     </div>
@@ -48,25 +54,42 @@
                   <tr>
                     <td>{{$id}}</td>
                     <td>{{$module->name}}</td>
-                    <td>@if($module->user_id!="")
-                    {{ App\User::findOrFail($module->user_id)->name }}
+                    <td><!--for qa department thats all logic-->
+                    @if($qa->id!='1')
+                    @if($module->group_id!="")
+                    {{ App\Group::findOrFail($module->group_id)->name }}
                     @else
                     empty
-                    @endif</td>
+                    @endif
+                    @else
+                    @if($module->qa!="")
+                    {{ App\Group::findOrFail($module->qa)->name }}
+                    @else
+                    not Assigned
+                    @endif
+                    @endif
+                    </td>
 
                    
                     <td style="width: 400px;">
-                    @if($module->user_id!="")
-                    <a href="{{route('moduleassign',[$module->id])}}" class="btn btn-md btn-Warning fa fa-chain fa-lg" >  Reassign </a> 
+                    @if($qa->id!='1')
+                    @if($module->group_id!="")
                      @else 
                      <a href="{{route('moduleassign',[$module->id])}}" class="btn btn-md btn-success fa fa-chain fa-lg" >  Assign </a> 
                      @endif 
-                    <a href="{{route('module.edit',[$module->id])}}" class="btn btn-md btn-info fa fa-edit fa-lg" > Edit</a> 
+                     <a href="{{route('module.edit',[$module->id])}}" class="btn btn-md btn-info fa fa-edit fa-lg" > Edit</a> 
                     <form style="display:inline" action="{{route('module.destroy',[$module->id])}}" method="post">
                         @csrf   
                         @method('DELETE')
                         <button class="btn btn-danger fa fa-trash fa-lg" type="submit"> Delete </button>
                     </form>
+                     @else
+                     @if($module->qa=="")
+                     <a href="{{route('moduleassign',[$module->id])}}" class="btn btn-md btn-success fa fa-chain fa-lg" >  Assign </a> 
+                     @else
+                     already assigned
+                     @endif 
+                     @endif
                     </td>
                   </tr>
                   <?php ++$id?>

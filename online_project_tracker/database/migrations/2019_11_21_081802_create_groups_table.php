@@ -17,8 +17,10 @@ class CreateGroupsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->bigInteger('manager_id')->unsigned()->nullable();
+            $table->bigInteger('division_id')->unsigned();
             $table->timestamps();
             $table->foreign('manager_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('division_id')->references('id')->on('divisions')->onDelete('cascade');
         });
     }
 
@@ -29,6 +31,10 @@ class CreateGroupsTable extends Migration
      */
     public function down()
     {
+        Schema::table('groups', function (Blueprint $table) {
+            $table->dropForeign('groups_manager_id_foreign');
+            $table->dropForeign('groups_division_id_foreign');
+          });
         Schema::dropIfExists('groups');
     }
 }

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Group;
 use App\User;
 use App\Role;
+use App\Division;
 Use DB;
+use Auth;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -13,7 +15,9 @@ class GroupController extends Controller
 
     public function index()
     {
-        $data=DB::table('groups')->paginate();
+        $id=Auth::user()->id;
+        $division=Division::where('user_id',$id)->first();
+        $data=DB::table('groups')->where('division_id',$division->id)->paginate();
         $user= new user();
         return view('head.grouplist',['datas'=>$data,'user'=>$user]);
     }
@@ -26,9 +30,13 @@ class GroupController extends Controller
 
     public function store(Request $request)
     {
+
+        $id=Auth::user()->id;
+        $division=Division::where('user_id',$id)->first();
         $data= new Group;
         $data->name=$request->name;
         $data->manager_id=$request->manager_id;
+        $data->division_id=$division->id;
         $data->save();
         return redirect()->route('group.index');
     }

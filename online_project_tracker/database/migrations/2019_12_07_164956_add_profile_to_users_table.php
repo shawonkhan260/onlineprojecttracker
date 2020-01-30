@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFileToTasksTable extends Migration
+class AddProfileToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddFileToTasksTable extends Migration
      */
     public function up()
     {
-        Schema::table('tasks', function (Blueprint $table) {
-            $table->string('file')->nullable();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('picture')->default('public/pictures/1.png');
+            $table->string('skill')->nullable();
         });
     }
 
@@ -25,8 +26,8 @@ class AddFileToTasksTable extends Migration
      */
     public function down()
     {
-        Schema::table('tasks', function (Blueprint $table) {
-            $table->dropColumn('file');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn(['picture', 'skill']);
         });
     }
 }

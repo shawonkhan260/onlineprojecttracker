@@ -20,9 +20,11 @@ class CreateProjectsTable extends Migration
             $table->biginteger('client_id')->unsigned()->nullable();
             $table->biginteger('user_id')->unsigned()->nullable();
             $table->string('status')->nullable();
+            $table->string('submission')->nullable();
+            $table->string('head_notify')->default(1);
             $table->timestamps();
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('divisions')->onDelete('cascade');
         });
     }
 

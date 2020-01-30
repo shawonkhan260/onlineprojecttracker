@@ -13,8 +13,8 @@
                 <thead class="bg-primary">
                   <tr>
                     <th>serial</th>
-                    <th>Group Name</th>
-                    <th>Group Leader</th>
+                    <th>Team Name</th>
+                    <th>Team Leader</th>
                     <th>Action</th>
                   </tr>
                 </thead>

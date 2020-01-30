@@ -18,14 +18,10 @@
     <label class="control-label col-sm-2" for="user_id">Assigned to:</label>
     <select class="form-control" placeholder="select a name" name="user_id"  id="demoselect1">
     <option></option>
-    @if($module->user_id!='')
-    <option value="{{$module->user_id}}" selected>{{$managers->users->find($module->user_id)->name}}<option>
-    @else
-    @endif
-    <!--for managers list-->
-    @foreach($managers->users as $user)
-    <option value="{{$user->id}}"  >{{$user->name}}</option>
+    @foreach($managers as $group)
+    <option value="{{$group->id}}"  >{{$group->name}}</option>
     @endforeach
+
     </select>
     </div>
 

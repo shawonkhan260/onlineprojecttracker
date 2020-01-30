@@ -12,6 +12,7 @@
                   <tr>
                     <th>serial</th>
                     <th>Task Name</th>
+                    <th>status</th>
                     <th>submission date</th>
                     <th>Action</th>
                     
@@ -21,20 +22,35 @@
                 <tbody>
                 <?php $id=1 ?>  
                 @foreach($tasks as $task)
+                @if($g!=1)
+                    @if($task->status!='submitted' and $task->status!='varified' )
                   <tr>
                     <td>{{$id}}</td>
                     <td>{{$task->name}}</td>
+                    <td>{{$task->status}}</td>
                     <td>{{$task->submission}}</td>
                     <td style="width: 400px;">
-                    @if($task->file!='')
-                    <a href="{{route('employeetask.edit',[$task->id])}}" class="btn btn-md btn-warning fa fa-edit fa-lg" > Resubmit </a> 
-                    @else
                     <a href="{{route('employeetask.edit',[$task->id])}}" class="btn btn-md btn-info fa fa-edit fa-lg" > submit </a> 
-                    @endif
                     <a href="{{route('employeetask.show',[$task->id])}}" class="btn btn-md btn-success fa fa-comment fa-lg" > details </a> 
-                    
                     </td>
                   </tr>
+                  @else
+                  @endif
+                    @else
+                    @if($task->status=='submitted')
+                    <tr>
+                    <td>{{$id}}</td>
+                    <td>{{$task->name}}</td>
+                    <td>{{$task->status}}</td>
+                    <td>{{$task->submission}}</td>
+                    <td style="width: 400px;">
+                    <a href="{{route('employeetask.edit',[$task->id])}}" class="btn btn-md btn-info fa fa-edit fa-lg" > varify </a> 
+                    <a href="{{route('employeetask.show',[$task->id])}}" class="btn btn-md btn-success fa fa-comment fa-lg" > details </a> 
+                    </td>
+                    </tr>
+                    @endif
+                    @endif
+                 
                   <?php ++$id?>
                 @endforeach  
                   

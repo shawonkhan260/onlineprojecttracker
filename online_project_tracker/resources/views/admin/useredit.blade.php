@@ -27,9 +27,12 @@
     <!--for role list-->
     @foreach($roles as $role)
     <!--for hide admin role list-->
+    @if(Auth::user()->id!='1')
     @if($role->name!='admin' )
     <option value="{{$role->id}}">{{$role->name}}</option>
+    @endif
     @else
+    <option value="{{$role->id}}">{{$role->name}}</option>
     @endif
     @endforeach
 

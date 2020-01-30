@@ -25,9 +25,3 @@
       </div>
 </main>
 @endsection
-
-
-@section('link')
-<li><a class="app-menu__item" href="{{route('headproject')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Project</span></a></li>
-<li><a class="app-menu__item" href="{{route('group.index')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">group</span></a></li>
-@endsection

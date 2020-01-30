@@ -27,7 +27,15 @@ class TaskassignController extends Controller
     public function update(Request $request, $id)
     {
         $data=Task::find($id);
-        $data->user_id=$request->user_id;
+        $a=Auth::user()->id;
+        $user=Group::where('manager_id',$a)->first();
+        if($user->division_id!='1'){
+            $data->user_id=$request->user_id;
+        }
+        else
+        {
+            $data->qa=$request->user_id;
+        }
         $data->submission=$request->submission;
         $data->save();
         $id=$request->module_id; //its for reload task list page wiht details of project

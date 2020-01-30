@@ -32,11 +32,19 @@
     <select class="form-control" placeholder="select a name" name="user_id" id="demoselect1">
     <option><option>
     <!--for head list-->
-    @foreach($head->users as $user)
+    @foreach($head as $user)
+    @if($user->id!=1)
     <option value="{{$user->id}}"  >{{$user->name}}</option>
+    @endif
     @endforeach
     </select>
     </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="name">Submission Date:</label>
+      <input type="date" class="form-control" id="name"  name="submission" >
+    </div>
+
     <div class="form-group">        
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>

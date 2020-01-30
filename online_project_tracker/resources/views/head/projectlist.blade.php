@@ -20,7 +20,7 @@
                 <tbody>
                 <?php $id=1?>
                 @foreach($datas as $data)
-                  <tr>
+                  <tr @if($data->status=="new") style="font-weight: bold;  background-color:rgba(255, 255, 0, 0.5)" @endif>
                     <td>{{$id}}</td>
                     <td>{{$data->name}}</td>
                     <td>{{$data->status}}</td>
@@ -28,7 +28,6 @@
                    
                     <td style="width: 400px;">
                     <a href="{{route('modulelist',[$data->id])}}" class="btn btn-md btn-info fa fa-list fa-lg" > Module List </a> 
-                   
                     </td>
                   </tr>
                   <?php ++$id?>

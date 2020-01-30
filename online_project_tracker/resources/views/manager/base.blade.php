@@ -22,6 +22,3 @@
       </div>
 </main>
 @endsection
-@section('link')
-<li><a class="app-menu__item" href="{{route('managermodule')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Module list</span></a></li>
-@endsection
