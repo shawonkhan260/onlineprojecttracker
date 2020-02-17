@@ -4,7 +4,7 @@
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-dashboard"></i> Admin dashboard</h1>
+          <h1><i class="fa fa-dashboard"></i> Admin</h1>
         </div>
       </div>
       <div class="row">

@@ -26,11 +26,11 @@
 
     <div class="form-group">
       <label class="control-label col-sm-2" for="name">Project Name:</label>
-      <input type="text" class="form-control" id="name" value="{{$id->name}}" name="name">
+      <input type="text" class="form-control" id="name" value="{{$id->name}}" required name="name">
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="details">Details:</label>
-      <textarea class="form-control" id="details" rows="4" value="" name="details">{{$id->details}}</textarea>
+      <textarea class="form-control" id="details" rows="4" value="" required name="details">{{$id->details}}</textarea>
     </div>
 
     <div class="form-group">

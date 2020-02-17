@@ -39,19 +39,21 @@
         <div class="col-md-3">
           <div class="widget-small bg-success text-center"><i class="icon fa fa-server fa-3x"></i>
             <div class="info">
-              <h4>Completed Module</h4>
-              <p><b>{{App\Module::where('status',"=","completed")->where('project_id',$project)->count()}}</b></p>
+              <h4>Completed Project</h4>
+              <p><b>{{App\Project::where('status',"=","completed")->where('user_id',$department)->count()}}</b></p>
             </div>
           </div>
         </div>
         <div class="col-md-3">
           <div class="widget-small warning text-center"><i class="icon fa fa-tasks fa-3x"></i>
             <div class="info">
-              <h4>Running Module</h4>
-              <p><b>{{App\Module::where('status',"!=","completed")->where('project_id',$project)->count()}}</b></p>
+              <h4>Running Project</h4>
+              <p><b>{{App\Project::where('status',"=","running")->where('user_id',$department)->count()}}</b></p>
+              <!--{{App\Module::where('status',"!=","completed")->where('project_id',$project)->count()}}-->
             </div>
           </div>
         </div>
+        
         @else
         <div class="col-md-3">
           <div class="widget-small bg-info text-center"><i class="icon fa fa-briefcase fa-3x"></i>

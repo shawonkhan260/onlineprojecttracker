@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="{{asset('logintemplate/images/icons/favicon.ico')}}"/>
+	<link rel="icon" type="image/png" href="{{asset('fabicon.png')}}"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('logintemplate/vendor/bootstrap/css/bootstrap.min.css')}}">
 <!--===============================================================================================-->
@@ -35,7 +35,7 @@
 				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
                     @csrf
 					<span class="login100-form-title">
-						Member Login
+						User Login
 					</span>
  
 					<div class="wrap-input100 validate-input">

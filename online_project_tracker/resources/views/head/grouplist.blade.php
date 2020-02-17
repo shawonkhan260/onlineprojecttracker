@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a href="{{route('group.create')}}" class="btn btn-lg btn-success m-3 fa fa-plus fa-lg" >Add new Group</a>
+<a href="{{route('group.create')}}" class="btn btn-lg btn-success m-3 fa fa-plus fa-lg" >Add new Team</a>
 
 
       <div class="row">

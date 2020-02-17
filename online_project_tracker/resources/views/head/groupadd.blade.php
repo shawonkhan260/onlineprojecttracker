@@ -4,16 +4,16 @@
 <div class="container">
 <div class="row">
 <div class="offset-sm-2 col-sm-8">
-  <h2>Add Group</h2>
+  <h2>Add Team</h2>
   <form class="form-horizontal" action="{{route('group.store')}}" method="POST">
   {{csrf_field()}}
     <div class="form-group">
-      <label class="control-label col-sm-3" for="name">Group Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter full name" name="name">
+      <label class="control-label col-sm-3" for="name">Team Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter name" required name="name">
     </div>
 
     <div class="form-group">
-    <label class="control-label col-sm-3" for="head">Group Leader:</label>
+    <label class="control-label col-sm-3" for="head">Team Leader:</label>
     <select class="form-control"  name="manager_id" id="demoselect">
     <option><option>
     <!--for hide assigning head-->

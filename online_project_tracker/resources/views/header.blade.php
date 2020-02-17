@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!--tab icon-->
+    <link rel="icon" type="image/png" href="{{asset('fabicon.png')}}"/>
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('template/css/main.css')}}">
     <!-- Font-icon css-->
@@ -20,7 +22,7 @@
   </head>
   <body class="app sidebar-mini rtl">
     <!-- Navbar header-->
-    <header class="app-header"><a class="app-header__logo" href="{{route('home')}}">Vali</a>
+    <header class="app-header"><a class="app-header__logo" href="{{route('home')}}">OPT</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
@@ -55,7 +57,7 @@
         ?>
         {{$data}}</span></a>
           <ul class="app-notification dropdown-menu dropdown-menu-right">
-            <li class="app-notification__title"><a href="{{route('completeproject')}}">You have {{$data}} new Project.</a></li>
+            <li class="app-notification__title"><a href="{{route('completeproject')}}">You have {{$data}} completed Project.</a></li>
             
           </ul>
         </li>

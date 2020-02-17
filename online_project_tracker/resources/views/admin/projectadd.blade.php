@@ -20,11 +20,11 @@
 
     <div class="form-group">
       <label class="control-label col-sm-2" for="name">Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter full name" name="name">
+      <input type="text" class="form-control" id="name" placeholder="Enter full name" required name="name">
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="details">Details:</label>
-      <textarea class="form-control" id="details" rows="4" placeholder="Enter Project details.." name="details"></textarea>
+      <textarea class="form-control" id="details" rows="4" placeholder="Enter Project details.." required name="details"></textarea>
     </div>
 
     <div class="form-group">

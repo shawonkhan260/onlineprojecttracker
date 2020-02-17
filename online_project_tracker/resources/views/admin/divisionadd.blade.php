@@ -4,16 +4,16 @@
 <div class="container">
 <div class="row">
 <div class="offset-sm-2 col-sm-8">
-  <h2>Add division</h2>
+  <h2>Add department</h2>
   <form class="form-horizontal" action="{{route('division.store')}}" method="POST">
   {{csrf_field()}}
     <div class="form-group">
-      <label class="control-label col-sm-3" for="name">Division Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter full name" name="name">
+      <label class="control-label col-sm-3" for="name">Department Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter full name" required name="name">
     </div>
 
     <div class="form-group">
-    <label class="control-label col-sm-3" for="head">Division Head:</label>
+    <label class="control-label col-sm-3" for="head">Department Head:</label>
     <select class="form-control"  name="user_id" id="demoselect">
     <option><option>
     <!--for hide assigning head-->

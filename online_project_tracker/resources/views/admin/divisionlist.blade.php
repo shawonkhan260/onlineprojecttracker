@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a href="{{route('division.create')}}" class="btn btn-lg btn-success m-3 fa fa-plus fa-lg" >Add new Division</a>
+<a href="{{route('division.create')}}" class="btn btn-lg btn-success m-3 fa fa-plus fa-lg" >Add new Department</a>
 
 
       <div class="row">

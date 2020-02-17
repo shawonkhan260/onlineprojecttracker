@@ -5,13 +5,13 @@
 <div class="container">
 <div class="row">
 <div class="offset-sm-2 col-sm-8">
-  <h2>Edite Division</h2>
+  <h2>Change Access</h2>
   <form class="form-horizontal" action="{{route('user.update', $data->id)}}" method="POST">
   {{csrf_field()}}
   @method('PATCH')
     <div class="form-group">
       <label class="control-label col-sm-3" for="name">Name:</label>
-      <input type="text" class="form-control" id="name" value="{{$data->name}}" name="name">
+      <input type="text" class="form-control" id="name" value="{{$data->name}}" readonly name="name">
     </div>
     <div class="form-group">
     <label class="control-label col-sm-3" for="role_id">Role:</label>

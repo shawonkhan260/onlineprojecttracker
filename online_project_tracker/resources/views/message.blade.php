@@ -4,7 +4,7 @@
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-dashboard"></i> admin dashboard</h1>
+          <h1><i class="fa fa-envelope"></i> Messenger</h1>
           
         </div>
         

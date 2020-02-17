@@ -7,7 +7,7 @@
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-dashboard"></i> Admin dashboard</h1>
+          <h1><i class="fa fa-dashboard"></i> Profile Information</h1>
           
         </div>
        
@@ -43,7 +43,7 @@
         {{csrf_field()}}
         @method('PATCH')
           <div class="form-group">
-            <input type="file" class="form-control" name="picture">
+            <input type="file" class="form-control" required name="picture">
           </div>  
           <div class="modal-footer">
             <div class="form-group">        
@@ -117,11 +117,11 @@
         @method('PATCH')
           <div class="form-group">
           Full Name
-            <input type="text" value="{{Auth::user()->name}}" class="form-control" name="name">
+            <input type="text" value="{{Auth::user()->name}}" class="form-control" required name="name">
           </div> 
           <div class="form-group">
           Email address
-            <input type="email" class="form-control" value="{{Auth::user()->email}}" name="email">
+            <input type="email" class="form-control" value="{{Auth::user()->email}}" required name="email">
           </div> 
 
           <div class="modal-footer">

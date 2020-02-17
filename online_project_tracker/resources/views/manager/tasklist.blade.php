@@ -80,11 +80,13 @@
                      <a href="{{route('taskassign',[$task->id])}}" class="btn btn-md btn-success fa fa-chain fa-lg" >  Assign </a> 
                      @endif 
                     <a href="{{route('task.edit',[$task->id])}}" class="btn btn-md btn-info fa fa-edit fa-lg" > Edit</a> 
+                    @if($task->status!="varified")
                     <form style="display:inline" action="{{route('task.destroy',[$task->id])}}" method="post">
                         @csrf   
                         @method('DELETE')
                         <button class="btn btn-danger fa fa-trash fa-lg" type="submit"> Delete </button>
                     </form>
+                    @endif
                     @else
                     <a href="{{route('taskassign',[$task->id])}}" class="btn btn-md btn-success fa fa-chain fa-lg" >  Assign </a> 
                     @endif

@@ -5,7 +5,8 @@
 
 <div class="col-md-12" style="font-size:1.5em">
     <div class="row d-print-none mt-2">
-        <div class="col-12 text-left"><a class="btn btn-primary"  href="javascript:window.print();" target="_blank"><i class="fa fa-print"></i> Print</a></div>
+        <div class="col-12 text-left"><a class="btn btn-primary" onclick="window.print()"  target="_blank"><i class="fa fa-print"></i> Print</a></div>
+        <!--href="javascript:window.print();"-->
     </div>
     <div class="tile">
     <h3 class="tile-title">Project Information</h3>

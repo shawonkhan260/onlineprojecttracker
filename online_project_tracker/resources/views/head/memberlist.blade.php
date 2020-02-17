@@ -31,7 +31,7 @@
   <!--Drop down for employee-->
     <div class="form-group">
     <label class="control-label col-sm-2" for="user_id">Select member:</label>
-    <select class="form-control" style="width:100%" placeholder="select a name"  name="user_id" id="demoselect1">
+    <select class="form-control" style="width:100%" placeholder="select a name" required name="user_id" id="demoselect1">
     <option></option>
     <!--for employee list-->
     @foreach($employees->users as $user)

@@ -51,7 +51,7 @@
                 </thead>
                 <tbody>
                 <?php $id=1 ;
-                $tasks=App\submittask::where('task_id',$data->id)->get()
+                $tasks=App\submittask::where('task_id',$data->id)->latest()->get()
                 ?>  
                 @foreach($tasks as $task)
                   <tr>

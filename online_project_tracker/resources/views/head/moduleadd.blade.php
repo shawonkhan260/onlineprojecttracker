@@ -9,11 +9,11 @@
   {{csrf_field()}}
     <div class="form-group">
       <label class="control-label col-sm-2" for="name">Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter full name" name="name">
+      <input type="text" class="form-control" id="name" placeholder="Enter module name" required name="name">
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Details:</label>
-      <input type="text" class="form-control" id="details" placeholder="Enter Details" name="details">
+      <input type="text" class="form-control" id="details" placeholder="Enter Details" required name="details">
     </div>
     <input type="hidden" value="{{$id}}" name="project_id">
     

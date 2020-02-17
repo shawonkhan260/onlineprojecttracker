@@ -17,12 +17,12 @@
   @if($g!=1)
     <div class="form-group">
       <label class="control-label col-sm-2" >file:</label>
-      <input type="file" class="form-control" name="file">
+      <input type="file" class="form-control" required name="file">
     </div>  
 
     <div class="form-group">
       <label class="control-label col-sm-2" >Comment:</label>
-      <input type="text" class="form-control" name="details">
+      <input type="text" class="form-control" required name="details">
     </div> 
     <input type="hidden" value="{{$g}}" name="g">
     <div class="form-group">        

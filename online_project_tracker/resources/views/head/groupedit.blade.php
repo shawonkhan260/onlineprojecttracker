@@ -5,16 +5,16 @@
 <div class="container">
 <div class="row">
 <div class="offset-sm-2 col-sm-8">
-  <h2>Edite Group</h2>
+  <h2>Edite Team</h2>
   <form class="form-horizontal" action="{{route('group.update', $id->id)}}" method="POST">
   {{csrf_field()}}
   @method('PATCH')
     <div class="form-group">
-      <label class="control-label col-sm-3" for="name">Group Name:</label>
-      <input type="text" class="form-control" id="name" value="{{$id->name}}" name="name">
+      <label class="control-label col-sm-3" for="name">Team Name:</label>
+      <input type="text" class="form-control" id="name" value="{{$id->name}}" required name="name">
     </div>
     <div class="form-group">
-    <label class="control-label col-sm-3" for="manager_id">Group Leader:</label>
+    <label class="control-label col-sm-3" for="manager_id">Team Leader:</label>
     <select class="form-control"  name="manager_id" id="demoselect">
     <option></option>
     @if($id->manager_id!="")

@@ -28,7 +28,7 @@
 @section('content')
 
             <div class="row d-print-none mt-2">
-                <div class="col-12 text-left"><a class="btn btn-primary"  href="javascript:window.print();" target="_blank"><i class="fa fa-print"></i> Print</a></div>
+                <div class="col-12 text-left"><a class="btn btn-primary"  onclick="window.print()"  target="_blank"><i class="fa fa-print"></i> Print</a></div>
             </div>
           <h2 style="text-align:center">Running Project list {{$date}}</h2>
             <div class="tile-body">

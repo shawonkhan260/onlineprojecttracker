@@ -11,11 +11,11 @@
   @method('PATCH')
     <div class="form-group">
       <label class="control-label col-sm-2" for="name">Task Name:</label>
-      <input type="text" class="form-control" id="name" value="{{$task->name}}" name="name">
+      <input type="text" class="form-control" id="name" value="{{$task->name}}" required name="name">
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Details:</label>
-      <textarea class="form-control" id="details" rows="5" name="details">{{$task->details}}</textarea>
+      <textarea class="form-control" id="details" rows="5" required name="details">{{$task->details}}</textarea>
     </div>
     <input type="hidden" value="{{$task->module_id}}" name="module_id" >
     

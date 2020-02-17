@@ -31,7 +31,7 @@
                     <td>{{$task->submission}}</td>
                     <td style="width: 400px;">
                     <a href="{{route('employeetask.edit',[$task->id])}}" class="btn btn-md btn-info fa fa-edit fa-lg" > submit </a> 
-                    <a href="{{route('employeetask.show',[$task->id])}}" class="btn btn-md btn-success fa fa-comment fa-lg" > details </a> 
+                    <a href="{{route('employeetask.show',[$task->id])}}" class="btn btn-md btn-success fa fa-eye fa-lg" > details </a> 
                     </td>
                   </tr>
                   @else
@@ -45,7 +45,7 @@
                     <td>{{$task->submission}}</td>
                     <td style="width: 400px;">
                     <a href="{{route('employeetask.edit',[$task->id])}}" class="btn btn-md btn-info fa fa-edit fa-lg" > varify </a> 
-                    <a href="{{route('employeetask.show',[$task->id])}}" class="btn btn-md btn-success fa fa-comment fa-lg" > details </a> 
+                    <a href="{{route('employeetask.show',[$task->id])}}" class="btn btn-md btn-success fa fa-eye fa-lg" > details </a> 
                     </td>
                     </tr>
                     @endif
